@@ -72,7 +72,7 @@ var single1 = svg.append("image")
 
 //饼饼记事簿文字图层
 var bing = svg.append("image")
-  .attr("xlink:href", "imgbing/bing.png")
+  .attr("xlink:href", "../imgbing/bing.png")
   .attr("x", 420)
   .attr("y", 60)
   .attr("width", 800)
