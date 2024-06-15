@@ -955,11 +955,24 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           }
         });
+      } else if (entry.target.classList.contains('people-Gao')) {
+        avatars.forEach(img => {
+          if (img.parentElement.getAttribute('data-avatar') === 'Gao') {
+            if (entry.isIntersecting) {
+              // console.log('显示高雨的头像');
+              img.classList.add('visible');
+              // console.log(img.classList);
+            } else {
+              // console.log('隐藏高雨的头像');
+              img.classList.remove('visible');
+            }
+          }
+        });
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll('.people-Bing, .people-Zhu, .people-Li, .people-Qian, .people-Liu').forEach(span => {
+  document.querySelectorAll('.people-Bing, .people-Zhu, .people-Li, .people-Qian, .people-Liu, .people-Gao').forEach(span => {
     // console.log(`开始观察元素：${span.className}`);
     observer.observe(span);
   });
@@ -1019,5 +1032,3 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initial check in case elements are already in view
   checkVisibility();
 });
-
-
