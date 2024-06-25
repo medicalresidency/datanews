@@ -81,6 +81,7 @@ input[type="range"] {
     align-items: center;
     justify-content: center;
     top: 18%;
+    z-index: 20;
 }
 
 #bingbing {
