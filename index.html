@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>规培生之困</title>
+  <link rel="stylesheet" type="text/css" href="./css/style_whole.css">
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+  <link href="./css/ratio.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/oneday.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.velocity.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.3.3/echarts.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/echarts-gl/2.0.6/echarts-gl.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <script src="./js/prefixfree.min.js"></script>
+  <script src="./js/index.js"></script>
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <div id="navigation" class="navigation">
+    <div class="progressLine">
+      <div class="progressLine__fill"></div>
+    </div>
+    <div class="nav-item" data-section="1">引子</div>
+    <div class="nav-item" data-section="2">誓言下的自刎</div>
+    <div class="nav-item" data-section="3">我是学生，还是医生？</div>
+    <div class="nav-item" data-section="4">明日复明日</div>
+    <div class="nav-item" data-section="5">值班室也会迎来清晨</div>
+  </div>
+  <!-- 导航栏over -->
+
+  <!-- 人物介绍 -->
+  <div id="hint-avatar">
+    <p>▶文章中提到该人物时，对应头像会亮起。也可以随时鼠标悬浮查看人物介绍▶</p>
+  </div>
+  <div class="avatar-container">
+    <div class="avatar" data-tooltip="朱景平：专硕规培生。本科在家乡湖南就读，研究生在广西医科大学就读。目前研三，即将毕业。未来，他希望自己能做一名优秀的妇产科医生。"
+      data-avatar="Zhu">
+      <img src="./image/profile/1.png" alt="朱景平">
+    </div>
+    <div class="avatar"
+      data-tooltip="饼饼：考研一战失败后，饼饼选择了社会规培道路，但由于身体和心理的双重压力，在规培第二年（2023）退培。目前二战考研，她说她希望能够进入高校做老师，安安稳稳的生活。"
+      data-avatar="Bing">
+      <img src="./image/profile/2.png" alt="饼饼">
+    </div>
+    <div class="avatar" data-tooltip="李广：经历两次规培，11-14年读临床型硕士，19-22年在放疗科进行社会规培。规培制度变革亲历者。现在是一名肿瘤科医生。" data-avatar="Li">
+      <img src="./image/profile/3.png" alt="李广">
+    </div>
+    <div class="avatar" data-tooltip="钱小獒：社会规培生，由于家庭原因选择学医这条道路。经常在丁香园等医学生社交论坛上发帖，如今，他已经放弃了当医生的念头。" data-avatar="Qian">
+      <img src="./image/profile/4.png" alt="钱小獒">
+    </div>
+    <div class="avatar" data-tooltip="刘进：国内住院医师规培制度的发起者之一，国内著名临床麻醉学专家、四川大学华西医院麻醉手术中心原主任。" data-avatar="Liu">
+      <img src="./image/profile/5.png" alt="刘进">
+    </div>
+    <div class="avatar" data-tooltip="高雨：浙江省妇产科方向专硕规培生，未来想从事医药相关行业。" data-avatar="Gao">
+      <img src="./image/profile/6.png" alt="高雨">
+    </div>
+  </div>
+
+  <!-- 引子 -->
+  <section id="section1" class="section">
+    <!-- 封面 规培生之困 -->
+    <div id="cover-whole" class="avatar-invisible-trigger">
+      <div id="cover-slide1" class="cover-slide-show fade-transition">
+        <div id="cover-img1" class="cover-img fade-transition">
+        </div>
+      </div>
+      <div id="suicide-slide" class="cover-slide-show fade-transition">
+        <div id="door-slide" class="cover-slide-show">
+          <div id="door-img" class="cover-img fade-transition"></div>
+        </div>
+        <div id="text-slide" class="cover-slide-show">
+          <div id="text-introduction">
+            <p class="introduction fade-transition" id="introduction1">2024年2月24日</p>
+            <p class="introduction fade-transition" id="introduction2">湖南省人民医院一名专硕规培生曹丽萍</p>
+            <p class="introduction fade-transition" id="introduction3">因压力过大选择刎颈自杀</p>
+            <p class="introduction fade-transition" id="introduction4">在她的遗言里，她绝望地控诉着：</p>
+            <div id="phone" class="cover-img avatar-invisible-trigger"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="content1" class="content">
+      <div id="pinned1" class="pinned">
+        <p style="width: max-content;">这不是2024年唯一的规培生自杀事件。</p>
+        <img src="./image/news_suicide/newspaper.png" alt="" id="suicide-news" class="fade-in illustration">
+      </div>
+      <div id="suicide-news-text">
+        <p>
+          <span class="quote">“习惯了。”</span>
+          <br>
+          <br>
+          看到手机里再次出现规培生自杀的新闻，通过退培主动结束规培生涯的<span class="people-Bing people">饼饼</span>心里只有这一个想法。
+          <br>
+          <br>
+          此时考研二战的初试成绩刚出来，<span
+            class="people-Bing people">饼饼</span>正在为即将到来的复试做准备。这次时间紧张，初试成绩不够理想，自己面临调剂，但饼饼仍对退培后再次考研这一选择感到满意——这是一个重新回到校园的机会，也许毕业后自己能够进入高校任职，久违地过上一周双休的日子。
+          <br>
+          <br>
+          在外界意外于仅一个月就发生了4起规培生自杀事件时，<span
+            class="people-Bing people">饼饼</span>却感到习以为常。因为退培的想法在规培开始的前三个月就已经产生。那时，她也想过自杀。坚持了两年后，饼饼终于决定中止这一痛苦的经历。
+          <br>
+          <br>
+          在我国，<span>医学生在学校完成5年的本科教育后，必须要完成3年的住院医师规范化培训，再进行2-4年的专业化培训，才可以正式成为一名专科医生。这一培养制度简称“规培”</span>，它也是医学生成为正式医生的必经之路。
+          <br>
+          <br>
+          规培轮转一个科室所需的时间为3个月，对许多规培生而言，第一次轮转的体验永远是最具冲击力的。有研究跟踪调查了规培生的抑郁症情况，
+          <span>
+            规培开始时，中国住院医师中符合抑郁症诊断标准的受试者比例为9.1%，3个月后，这个数字陡然增长至21.1%，之后增长速度减缓。
+          </span>
+          <br>
+          <br>
+          <span>
+            总体而言，中国有35.1%的受试者在规培第一年就表现出了重度抑郁症倾向。
+          </span>
+          <br>
+          <br>
+        </p>
+        <div class="chart" style="padding-top: 20px;">
+          <div class="chart-title">
+            不同规培时长下，专硕规培生患抑郁症情况
+          </div>
+          <div id="main_depression_one_year" class="chart fade-in">
+          </div>
+          <div class="data-source">
+            <p>
+              数据来源：Lihong Chen等《Prevalence and risk factors for depression among training physicians in China and the
+              United
+              States》
+            </p>
+          </div>
+        </div>
+        <p style="margin-top:100px; margin-bottom: 30px;">
+          在所有规培生中，专硕规培生需要同时兼顾规培、学业和科研，压力最大，曹丽萍参与的即是这一类规培。
+        </p>
+        <div id="resident-explanation" class="chart">
+          <div id="resident1" class="resident-type"></div>
+          <div id="resident2" class="resident-type"></div>
+          <div id="resident3" class="resident-type"></div>
+        </div>
+        <p>
+          中南大学湘雅医院的学者对比了专硕规培生与社会规培生的抑郁和知觉压力情况。
+          <span>专硕规培生抑郁人数占比63.0%，比社会规培生抑郁人数占比高8.3%。</span>
+          此外，68.9%的专硕规培生<span class="tooltip">知觉压力
+            <span class="tooltiptext">指个体对来自压力源的威胁程度以及他们应对威胁的能力的评估。适度的压力有利于维持个体身心健康，帮助适应周围环境，但过多的压力会对身心造成不良影响。</span>
+          </span>升高，压力最主要的来源是学业（占比85.1%），其次是科研和就业。
+          <br>
+          <br>
+        </p>
+        <div class="chart" style="padding-top: 20px;">
+          <div class="chart-title">
+            中国专硕规培生抑郁情况
+          </div>
+          <div class="hint">
+            （鼠标悬浮查看详细信息▶）
+          </div>
+          <div id="depression-different-type" class="chart">
+            <div id="double_pie_container">
+              <div id="initialChartContainer">
+                <canvas id="initialChart"></canvas>
+              </div>
+              <div id="detailedChartContainer">
+                <canvas id="detailedChart" class="chart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="data-source">
+            <p>
+              数据来源：朱小艳等《“双轨合一” 培训模式下住院医师的抑郁症状和知觉压力》
+            </p>
+          </div>
+        </div>
+
+        <p style="margin-top:100px;">
+          自2014年规培制度正式启动至今，全国共有1100多个国家级培训基地和11000多个专业基地，累计招收培训107万人。他们在三甲医院这片汪洋里浮浮沉沉，有人顺利拿到证书上岗，有人选择退出寻找新的就业方向，也有人永远被困在这里。
+          <span>十年过去，规培最初的愿景所剩多少？千千万万个即将正式上岗的规培生，又将如何审视自身命运？</span>
+        </p>
+      </div>
+    </div>
+
+  </section>
+  <!-- 引子over -->
+
+  <!-- 第一章 誓言下的自刎 -->
+  <section id="section2" class="section">
+    <div id="cover-slide2" class="cover-slide fade-transition avatar-invisible-trigger">
+      <div id="cover-img2" class="cover-img"></div>
+    </div>
+    <div id="newspaper-background">
+      <img src="./image/newspaper.png" alt="新闻剪报">
+    </div>
+    <div id="content2" class="content">
+      <p>在刚进入大学时，所有医学生便会进行宣誓。
+      </p>
+      <p id="promise">
+        健康所系、性命相托。
+        当我步入神圣医学学府的时刻，谨庄严宣誓：
+        我志愿献身医学，热爱祖国，忠于人民，恪守医德，尊师守纪，刻苦钻研，孜孜不倦，精益求精，全面发展。
+        我决心竭尽全力除人类之病痛，助健康之完美，维护医术的圣洁和荣誉。救死扶伤，不辞艰辛，执着追求，为祖国医药卫生事业的发展和人类身心健康奋斗终生！
+      </p>
+      <p>
+        <br>
+        有研究者统计了建国以来《人民日报》发布的医患报道，
+        <span>45.84%的报道侧重展示医生的正面形象</span>，将医生刻画为“关心病患”“无私奉献”“品德优秀”“不畏艰苦”的“白衣天使”。同时，<span>有29.99%的报道关注了医生群体的困境</span>，指出“安全得不到保障”“医暴伤害”“待遇差”等问题。
+        <br>
+        <br>
+      </p>
+      <div class="chart" style="padding-top: 20px; height: max-content;">
+        <div class="chart-title">医生媒介形象</div>
+        <div id="wordcloud" class="chart">
+          <div id="wordcloud-img1" class="wordcloud-img">
+            <div class="wordcloud-text">
+              负面形象
+            </div>
+          </div>
+          <div id="wordcloud-img2" class="wordcloud-img">
+            <div class="wordcloud-text">
+              中性形象
+            </div>
+          </div>
+          <div id="wordcloud-img3" class="wordcloud-img">
+            <div class="wordcloud-text">
+              正面形象
+            </div>
+          </div>
+        </div>
+        <div class="data-source" id="wordcloud-info">
+          <p>
+            注：数据覆盖建国以来的《人民日报》相关报告。其中红色词云图代表医生群体的负面形象呈现，灰色词云图代表医生群体的中性形象（医生群体的担忧和困境），蓝色词云图代表医生群体的正面形象。三个词云图的大小为三种形象呈现数量多寡的映射。
+          </p>
+        </div>
+      </div>
+
+      <p style="margin-top: 130px;">
+        可以说，无论是在社会评价还是自我期望上，大部分医学生和医生都在向着救死扶伤的“白衣天使”形象靠拢。
+        <br>
+        <br>
+        那么，一双救人的手，为何想要杀死自己？
+        <br>
+        <br>
+        <span class="people-Zhu people">朱景平</span>是广西某医院的妇产科专硕规培生，即将完成为期三年的规培。以他自身经历来看，医生内部有着鲜明的等级差异。
+        <span>如果以金字塔的形象去看医院的权力结构，那么规培生这一群体不仅在金字塔的底端，还身处底端的最边缘。</span>对于刚刚走出象牙塔的规培生而言，这一事实堪称残酷。
+        <br>
+        <br>
+        第一次听见规培医院的护士对自己进行“无厘头”的人身攻击时，<span class="people-Zhu people">朱景平</span>的第一个念头是<span
+          class="quote">“不能反抗”</span>。护士当着孕妇的面指责研究生和进修老师，<span
+          class="quote">“你们是土包子，你们是土鳖，什么都不会”</span>。即便知道护士并不具备做出这种评价的资质，朱景平和其他规培生也从来不会反驳。<span
+          class="quote">“没有办法，我得毕业。如果我因为反抗而不能毕业，我这三年不就白费了？”</span>
+        <br>
+        <br>
+        <span>对规培生而言，退培的成本是巨大的。</span>
+        <br>
+        <br>
+        规培制度全面启动同年，“双轨合一”模式也开始实施，通俗理解为“边读研边规培”，长期来看可以节省3年时间，与之相对的是，专硕规培生如果没能拿到规培证，则无法硕士毕业，也不能执业。
+        <br>
+        <br>
+      </p>
+      <p>在中国，要成为一个正式的医生，从读书开始，至少需要8年。
+        <br>
+        <br>
+      </p>
+      <div class="chart" style="padding-top: 20px; height: auto; margin-bottom: 0;">
+        <div class="chart-title">
+          中国医学生如何成为一名医生？
+        </div>
+        <div id="how-to-be-a-doctor" class="chart">
+          <img src="./image/be_a_doctor_in_china/doctor_route.png" alt="">
+        </div>
+      </div>
+      <p>
+        <span>一旦退出规培，医学生不仅无法成为正式医生，这么多年学医的时间更是“竹篮打水一场空”。除此之外，退培的医学生还需要返还规培期间所有工资、国家补贴等，之后三年不能重新参加规培。</span>
+        <br>
+        <br>医学行业和其他专业的跨度很大，在<span class="people-Zhu people">朱景平</span>看来认为，退培几乎意味着转行，<span
+          class="quote">“相当于我在社会上没有任何生存能力，我还得继续啃老，说句不好听的，这跟让我死有什么区别？”</span>
+        <br>
+        <br>
+        对于已经正式成为一名肿瘤科医生的<span class="people-Li people">李广</span>来说，这种感觉也异常清晰。回看自己连续十五年的学医之路，他说，<span
+          class="quote">“整个医生的职业体系都是一种规训”</span>，
+        <span>制度会积极地进行筛选，留下的人大多被淬炼出了专业、谨慎、细心的品质，服从性和隐忍性也无可避免地在他们身上生根、壮大，使其难以反抗。</span><span
+          class="quote">“这些品质对医生来说是必要的，但是这个制度利用医生的这种特性进行压榨，也让我觉得非常恶心。”</span>李广说。
+        <br>
+        <br>
+      </p>
+    </div>
+  </section>
+  <!-- 第一章over -->
+
+  <!-- 第二章 我是学生，还是医生？ -->
+  <section id="section3" class="section">
+    <div id="cover-slide3" class="cover-slide fade-transition avatar-invisible-trigger">
+      <div id="cover-img3" class="cover-img"></div>
+    </div>
+    <div id="content3" class="content">
+      <p>
+        在学医的漫长修炼中，“规培生”成了最复杂、最模糊的身份定位。
+        <br>
+        <br>
+        <span>“规培生”一词中的“生”，既可以指“学生”也可以指“医生”</span>，字面意义上的双重性与模糊性也延续到了规培生的现实工作中——<span
+          class="quote">“谈待遇时别人说你是来学习的，谈工作强度时别人说你是来工作的。就是干最多的活，拿最少的待遇”</span>，<span
+          class="people-Bing people">饼饼</span>说。
+        <br>
+        <br>
+        2020年，丁香园对 3023 位参加过规培的医生展开调查。社会规培的收入最高，每月平均收入在 3000 元以上。单位委培排第二，每月平均收入补助在 2000～2999 元。专硕规培的收入最低，
+        <span>每月平均收入补助不足 1000 元，其中 20% 的人没有收入</span>。
+        <br>
+        <br>
+      </p>
+      <div class="chart" style="padding-top: 10px; height: max-content;">
+        <div class="chart-title">
+          规培生收入情况
+        </div>
+        <div id="income-box" class="chart">
+          <div id="double_chart_container">
+            <div id="initialChartContainer1">
+              <canvas id="initialChart2"></canvas>
+            </div>
+            <div id="detailedChartContainer1">
+              <canvas id="detailedChart2" class="chart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="hint">
+          （鼠标悬浮查看详细信息▶）
+        </div>
+        <div class=" data-source" style="top: 90%;">
+          <p>数据来源：丁香园</p>
+        </div>
+      </div>
+
+      <p>
+        国内住院医师规培制度的发起者之一、著名临床麻醉学专家<span
+          class="peple-Liu people">刘进</span>在接受采访时表示，由始至终，专硕生都是全日制研究生身份。在完成规培的33个月期间，他们无法领到来自政府的财政补贴和相应数量的医院补贴。<span
+          class="quote">“因为，政府的财政补贴是按属于卫健委规培系统的规培生人头给钱，一人一年3万，规培系统有多少人头就给多少钱。专硕生属于教育部系统，不在卫健委的规培系统中，自然拿不到这部分补贴。”</span>
+        <br>
+        <br>
+        <span>在薪资远远低于正式医生的情况下，规培生同样承受着非比寻常的工作强度。</span>
+        <br>
+        <br>
+        开始规培以来，<span class="people-Zhu people">朱景平</span>已经有三年没有回湖南老家过年。<span
+          class="quote">“有两个除夕都是在值班，还有一个是大年初一在值班。”</span>他每天需要接诊100多个病人，少的时候也有70个左右。轮到自己值班时，朱景平会连续工作48个小时。
+        <br>
+        <br>
+        <span class="quote">“在产科轮转的时候尤其累，经常通宵都没有休息时间。”</span><span class="people-Zhu people">朱景平</span>说，<span
+          class="quote">“因为可能会出现孕妇死亡或者胎儿死亡的情况，所以就算你困得不行半夜也得打起十二分的精神，你永远不知道下一个会来什么样的病人——羊水突然破了，马上流产要保胎，或者更严重的，大出血、胎死宫内。这些事情有可能是同时发生的。”</span>
+        <br>
+        <br>
+        问卷调查显示，一半以上的受访规培生平均每天工作超过8小时。94.6%的规培生睡眠时间不足8小时，5.4%的受访者表示自己每天的睡眠时间小于4小时。
+        <br>
+        <br>
+        世界卫生组织数据显示，中国每个医生对应约419个人。<span>人手紧缺是中国许多医院的常态。</span>
+        <br>
+        <br>
+      </p>
+      <div class="chart" style="padding-top: 10px; height: max-content; margin-bottom: 0;">
+        <div class="chart-title">
+          不同国家人医比情况
+        </div>
+        <div id="doctor-number-img" class="chart">
+          <div id="ratio-container">
+            <div class="country-group" id="china">
+              <div class="doctor" style="background-image: url('./image/doctor_ratio/china-ratio.png');"></div>
+              <img src="./image/doctor_ratio/china.png" alt="中国" class="flag" data-info="在中国，平均每1名医生需要应对419名患者">
+            </div>
+            <div class="country-group" id="usa">
+              <div class="doctor" style="background-image: url('./image/doctor_ratio/usa-ratio.png');"></div>
+              <img src="./image/doctor_ratio/usa.png" alt="美国" class="flag" data-info="在美国，平均每1名医生需要应对281名患者">
+            </div>
+            <div class="country-group" id="japan">
+              <div class="doctor" style="background-image: url('./image/doctor_ratio/japan-ratio.png');"></div>
+              <img src="./image/doctor_ratio/japan.jpg" alt="日本" class="flag" data-info="在日本，平均每1名医生需要应对383名患者">
+            </div>
+            <div class="country-group" id="france">
+              <div class="doctor" style="background-image: url('./image/doctor_ratio/france-ratio.png');"></div>
+              <img src="./image/doctor_ratio/france.png" alt="法国" class="flag" data-info="在法国，平均每1名医生需要应对301名患者">
+            </div>
+            <div class="country-group" id="korea">
+              <div class="doctor" style="background-image: url('./image/doctor_ratio/korea-ratio.png');"></div>
+              <img src="./image/doctor_ratio/korea.jpg" alt="德国" class="flag" data-info="在德国，平均每1名医生需要应对221名患者">
+            </div>
+            <div class="country-group" id="uk">
+              <div class="doctor" style="background-image: url('./image/doctor_ratio/uk-ratio.png');"></div>
+              <img src="./image/doctor_ratio/uk.jpg" alt="英国" class="flag" data-info="在英国，平均每1名医生需要应对316名患者">
+            </div>
+          </div>
+          <div id="info" class="info-box"></div>
+        </div>
+        <div class="hint" id="hint3">
+          （鼠标悬浮查看详细信息▶）
+        </div>
+        <div class="data-source" id="doctor-number-info">
+          <p>
+            注：每个小人代表实际数据中的25个人
+            <br>
+            图表呈现的是实施规培制度的国家中GDP排名前6的国家
+          </p>
+        </div>
+        <div class="data-source" id="doctor-number-img-data-source">
+          <p>
+            数据来源：世界卫生组织
+          </p>
+        </div>
+      </div>
+      <p style="margin-top: 100px;">
+        <span class="people-Zhu people">朱景平</span>不否认规培对专业能力的提升，<span
+          class="quote">“这种高强度的工作下我不可能没有收获。”</span>他的语气很笃定，<span
+          class="quote">“但你的付出和收获是不是成正比，那又是另外一回事。”</span>朱景平每年能拿到国家补助的6000元，这笔钱会分10个月下发，再加上值夜班时的一些“辛苦费”，每个月到手1000元左右，<span
+          class="quote">“月月还得跟家里伸手要钱”</span>。
+        <br>
+        <br>
+        比起薪资本身，<span class="people-Zhu people">朱景平</span>更难以接受的是医院对规培生的态度。
+        <span>专硕规培生在医院内没有独立工号，不算正式员工，无法获得科室的绩效和奖金，加班也无法上报本院医生的系统，不能申请加班费或补休。</span><span
+          class="quote">“我们做的比本院医生多，为什么拿的是最少的？”</span>朱景平认为这很不公平，但也感到无奈，<span
+          class="quote">“他们只是把规培生当作耗材，当作干活的工具。”</span>
+      </p>
+    </div>
+    </div>
+  </section>
+  <!-- 第二章over -->
+
+  <!-- 第三章 明日复明日 -->
+  <section id="section4" class="section">
+    <div id="cover-slide4" class="cover-slide fade-transition avatar-invisible-trigger">
+      <div id="cover-img4" class="cover-img"></div>
+    </div>
+    <div id="content4" class="content">
+      <p>
+        2021年，<span class="people-Bing people">饼饼</span>考研失败，为了和专硕规培的前男友步调一致，她选择参加社会规培。两年后，饼饼决定退培，即便许多人劝她，<span
+          class="quote">“规培机会来之不易，熬一熬就过去了”</span>。
+        <br>
+        <br>
+        规培期间，<span
+          class="people-Bing people">饼饼</span>早上8点上班，和夜班同事交班后就开始上临床、查房。自己先看一半病人，剩下的由教授带着查房。下午正常上班的时间是14:30，饼饼开始收病人、开检查单和医嘱，还要再核实一遍，看有没有病人需要追加检查的。理论上，完成这些后就可以下班了，但工作的中途，<span
+          class="quote">“护士会过来找你，病人会过来找你，上级要找你，你工作时不是全神贯注的”。</span>
+      </p>
+    </div>
+    <div id="oneday">
+      <div class="hint" id="hint4">
+        （点击按钮切换工作日类型，拖动滑杆可查看不同时间段情况）
+      </div>
+      <p id="oneday-text">
+        这是规培生再普通不过的一天。
+      </p>
+      <div id="oneday-chart" class="chart avatar-invisible-trigger">
+        <div class="container">
+          <!-- 滑杆 ;以1作为步长，增加时间-->
+          <input type="range" id="bingbing" min="0" max="24" value="0" step="1" oninput="updateTime(this.value)">
+          <input type="range" id="gaoyu" min="0" max="24" value="0" step="1" oninput="updateTime(this.value)">
+          <input type="range" id="zhujingping" min="0" max="24" value="0" step="1" oninput="updateTime(this.value)">
+          <div id="value-box">
+            <div class="value">TIME</div>
+          </div>
+          <div class="button">
+            <button onclick="showSlider('bingbing'); buttonPressed(this)">饼饼-常规日</button>
+            <button onclick="showSlider('gaoyu'); buttonPressed(this)">高雨-手术日</button>
+            <button onclick="showSlider('zhujingping'); buttonPressed(this)">朱景平-值班日</button>
+          </div>
+          <div id="map"></div>
+        </div>
+
+      </div>
+    </div>
+
+    </div>
+    <div id="content7" class="content">
+      <p><span class="quote">“感觉很疲惫——身体的疲惫是可以忍受的，但还有心理上的疲惫。”</span>
+        <br>
+        <br>
+        发表在《自然》杂志上的论文研究了导致规培生抑郁的可能因素，结果显示，
+        <span>“工作时间长”和“睡眠时间少”在中国和美国都是重要因素，但是，“年龄”和“对工作场所暴力的恐惧两个因素仅在中国规培生的身上得到了明显体现。</span>
+        <br>
+        <br>
+        <span class="people-Bing people">饼饼</span>回忆起自己刚进规培医院时的经历，<span class="quote">
+          “在一个什么都不懂的情况下，你问其他人，换来的不是回答，而是嘲讽和人格攻击。”</span>第一次来这么好的医院规培，她有些自我怀疑，<span
+          class="quote">“我以为高端人才都是这样。”</span>之后，饼饼遇到了一些不错的带教老师和同事，才发现那个科室每年都会被规培生和进修的医生投诉。
+      </p>
+    </div>
+    <div id="nightmare-slide" class="avatar-invisible-trigger">
+      <div id="nightmare">
+        <video src="./image/dream-texture.mp4" id="background-video" class="avatar-invisible-trigger"></video>
+      </div>
+      <div id="nightmare-textbox">
+        <p id="nightmare-text1" class="nightmare-text">
+          三个月的孤立无援已经在<span class="people-Bing people">饼饼</span>心中留下了不可磨灭的烙印。</p>
+        <p id="nightmare-text2" class="nightmare-text">
+          “当时我每天晚上睡觉基本上会醒四次”
+        </p>
+        <p id="nightmare-text3" class="nightmare-text">“11点左右开始睡觉”</p>
+        <p id="nightmare-text4" class="nightmare-text">“12点醒一次”</p>
+        <p id="nightmare-text5" class="nightmare-text">“凌晨3点醒一次”</p>
+        <p id="nightmare-text6" class="nightmare-text">“6点醒一次”</p>
+        <p id="nightmare-text7" class="nightmare-text">“7点醒一次”</p>
+        <p id="nightmare-text8" class="nightmare-text">“再醒一次就该起床了”</p>
+        <p id="nightmare-text9" class="nightmare-text">“每醒一次，我就会想自己工作哪里没有做好，又要被主治骂。”</p>
+      </div>
+    </div>
+    <div id="content5" class="content">
+      <p>
+        那段时间，<span class="people-Bing people">饼饼</span>把微信头像换成了全黑，<span class="quote">“我当时想，我要死在科室，用我的血唤起主治的良知。”</span>
+        <br>
+        <br>
+        Jinxingyi Wang等学者在2023年发布的研究提到，自杀行为可分为<span class="tooltip">自杀意愿
+          <span class="tooltiptext">指个体出现了想要结束生命的念头，但是并没有付诸实行。
+          </span>
+        </span>（suicide ideation）、<span class="tooltip">自杀计划
+          <span class="tooltiptext">指具体自杀的方法、时间和地点以及其他准备自杀的行为。
+          </span>
+        </span>（suicide plan）和<span class="tooltip">自杀未遂
+          <span class="tooltiptext">
+            指有自杀想法并付诸自杀行动，但是并没有死亡。
+          </span>
+        </span>（suicide
+        attempt）。中国医学生这三种行为的发生率分别为13%、4%、3%。与世界范围内的医生相比，中国医学生报告的自杀意愿发生率较低，自杀未遂发生率更高。
+        <br>
+        <br>
+        根据学者吴至信的研究，自杀未遂是慢性的，即“我死给你看一看，我的自杀过程是抗议”。
+      </p>
+      <!-- <div id="anxiety-chart" class="chart">焦虑抑郁占位符</div> -->
+      <p>
+        <span class="people-Li people">李广</span>经历了时隔5年的两次规培，第一次规培在2014年结束，<span
+          class="quote">“那时候规培制度还没有推广开来，但我们都是按照规培的要求来的，只是没有规培证。”</span>读完博后，他从外科转到了放疗科，重新参与了完整的3年规培。6年的规培经历让他意识到，
+        <span>处在金字塔底层边缘的规培生“没有任何讨价还价的资本”，连平等对话都很难做到，更别提与上级进行权利博弈。</span>
+        <br>
+        <br>
+        目前，
+        <span>中国医师协会对规培基地的监管以自上而下的检查为主。</span>中国医师协会对规培基地的监管以自上而下的检查为主。国家卫生健康委委托协会对全国的培训基地进行抽查评估，重点关注基地管理、培训质量以及待遇保障情况。遭到不公正的对待时，除了举报并等待上级处理，规培生几乎没有其他方式保护自身权益。
+        <br>
+        <br>
+        最终，<span class="people-Bing people">饼饼</span>选择暂时退出这个系统。她再次考研，希望实现去高校当老师的愿望，<span
+          class="quote">“对于我所在的专业，本科只是一个起点，要想有发展空间就只能往上读研、读博。”</span>饼饼觉得，
+        <span>对大多数医学生而言，道路坎坷是常态。</span>
+      </p>
+    </div>
+    <div id="choice-slide">
+      <div id="choice-img-slide">
+        <div id="choice-img">
+          <div id="stair1" class="stair"></div>
+          <div id="stair2" class="stair"></div>
+          <div id="stair3" class="stair"></div>
+          <div id="stair4" class="stair"></div>
+        </div>
+        <div id="choice-textbox">
+          <div id="choice1" class="choice-text">
+            <p class="choice-content">
+              “我有一个上交大博士毕业的学长，他读完三年学硕，还是需要规培。所以他建议我读完研之后可以选择去做研究员，会有更多的空间。
+              <br>
+              <br>
+              另一个读学硕的师姐毕业后去了一个大学，
+              <span>先从助教做起，下午 5 点可以下班，周六周日都可以双休。我觉得这种生活幸福感会高一些</span>。”
+            </p>
+            <p class="quote-name">——<span class="people-Bing people">饼饼</span>（社会规培退培）</p>
+          </div>
+          <div id="choice2" class="choice-text">
+            <p class="choice-content">
+              “规培、医保改革和目前医疗环境，都是促使和我有一样想法的人转行的动机，但我把让我下定决心转行的罪魁祸首定给规培。就像心衰不一定是感染造成的，但感染却是心衰的诱因之一。
+              <br>
+              <br>
+              我打算和我女朋友去她陕西老家。我想去
+              <span>血透中心、临终关怀中心、体检中心或者社区医院，不去一线做医生了。</span>这些地方和陌生人接触的相对较少，只干活不用说话，挺好的。”
+            </p>
+            <p class="quote-name">——<span class="people-Qian people">钱小獒</span>（内科社会规培第二年）</p>
+          </div>
+          <div id="choice3" class="choice-text">
+            <p class="choice-content">
+              “我研一的时候还是非常喜欢医学的，即便很忙很累。但是后来我越来越觉得，目前的有些医生或者是整个医疗行业其实更看重医院的效益，而不是治病救人。所以，我有点丧失了当医生的初心，以后可能会
+              <span>从事医药相关的行业</span>吧。”
+            </p>
+            <p class="quote-name">——<span class="people-Gao people">高雨</span>（妇产科专硕规培第三年）</p>
+          </div>
+          <div id="choice4" class="choice-text">
+            <p class="choice-content">
+              “以前想法很伟大，想做个大医生、大专家，现在只想躺平。我最后选择了一个旅游城市的三甲医院，也许，我的精神可以在那个城市获得疗愈。但我知道，读研这三年带给我的伤害，我可能需要一辈子来治愈。
+              <br>
+              <br>
+              我觉得我不能再这样子了，所以我决定以后
+              <span>找一份不那么累的工作，去下面小一点的平台做医生</span>。”
+            </p>
+            <p class="quote-name">——<span class="people-Zhu people">朱景平</span>（妇产科专硕规培第三年）</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="content5" class="content">
+      <p>
+        第一次担任手术助手时，<span class="people-Zhu people">朱景平</span>不够熟练，拖慢了手术进度，主任当面说道，<span
+          class="quote">“你到底有没有上过学？你要不要回去重新读个本科？我都觉得你没有手。你要是这样子的话，我是你爸妈，我都后悔把你生出来。”</span>主任时不时的辱骂给朱景平留下了阴影，<span
+          class="quote">“每天晚上做噩梦都是被他骂醒，那一个月瘦了10斤。”</span>规培基地似乎成了一座透明的牢笼，朱景平很少走出医院所在的街区。他有时会怨恨家里人，为什么当初一定要让他学医。
+        <br>
+        <br>
+        规培第二年，<span
+          class="people-Zhu people">朱景平</span>的妈妈出了车祸，住进了ICU，朱景平数次在病危通知书上签字。他原以为自己会痛哭流涕、精神崩溃，但事实是，他以冷静的心态面对了这个现实，<span
+          class="quote">“我觉得我妈妈一定能够好起来。”</span>
+        <br>
+        <br>
+        如今，<span class="people-Zhu people">朱景平</span>已经是研三的师哥，在面对师弟师妹时很有耐心。<span
+          class="quote">“既然我们的上级不能保护我们，那么我们学生之间应该要互相团结。
+          <span>如果我不教他们，我走了之后师弟师妹会挨骂，到时候谁又能来帮他们？</span>”</span>
+      </p>
+    </div>
+  </section>
+  <!-- 第三章over -->
+
+  <!-- 第四章 值班室也会迎来清晨 -->
+  <section id="section5" class="section">
+    <div id="black-background2"></div>
+    <div id="cover-slide5" class="cover-slide-final fade-transition avatar-invisible-trigger">
+      <div id="cover-img5" class="cover-img"></div>
+      <img src="./image/transition_white2.png" alt="" id="transition">
+      <div id="black-background"></div>
+    </div>
+    <div id="content6" class="content content-light">
+      <p>
+        <span>好的制度从来不会自行到来。</span>中国的医生和医学生需要开展一段漫长的探索，在重压之下思考自救和互救的可能性，推动制度向更好的未来转变。
+        <br>
+        <br>
+        回看中国规培制度的诞生，2003年至2013年，华西医院麻醉中心主任<span class="people-Liu people">刘进</span>持续十年向全国人大提交建立规培制度的建议。
+        <br>
+        <br>
+        据国家卫生健康委发布的《2022年我国卫生健康事业发展统计公报》，截至2022年，中国共有医院3.69万家，有基层医疗卫生机构97.97万家，后者具有绝对的数量优势。从占比看，基层医疗卫生机构才是公众在日常出现健康问题之际能最快“获救”的地方。如果医疗资源的触角无法到达这些地方，对身处在中国社会的普通公众而言，是巨大的风险。
+        <br>
+        <br>
+        因此，
+        <span>在中国建立规培制度，就是希望更多的中国普通百姓都能遇到“靠谱”的医生</span>。
+      </p>
+      <div class="chart" style="margin: 100px auto;">
+        <div class="chart-title chart-title-black">
+          中国医疗机构各层级数量占比
+        </div>
+        <img src="./image/treemap.png" alt="" id="treechart" class="chart">
+        <div class="data-source" id="institution-data-source">
+          <p>
+            数据来源：《2022年我国卫生健康事业发展统计公报》
+          </p>
+        </div>
+      </div>
+
+      <p>
+        十年后，中国医师协会常务副会长兼秘书长于竞进在接受《三联生活周刊》采访时指出，
+        <span>规培制度对于推进我国整体医疗水平的均质化起到了很大作用</span>。贵州遵义凤冈县卫生局统计显示，第一批经过5+3培训的全科医生上岗之后，乡镇卫生院的住院人数翻了一番，门诊人数也增长了近一倍，职工绩效收入也增加了。
+        <br>
+        <br>
+        <span
+          class="people-Liu people">刘进</span>曾用一个比喻解释规培的必要性：“培训基地相当于靶场，住院医师相当于子弹，严格的培训制度是枪，一个医院的院领导、科室领导、基地老师相当于是枪手，他们决定了子弹打往哪些方向。”
+        <br>
+        <br>
+        <span>变化正在发生。</span>
+        <br>
+        <br>
+        2020年9月，国务院办公厅印发《关于加快医学教育创新发展的指导意见》，再次强调健全住院医师规范化培训制度，提出基地要综合考虑经济发展、物价变动、所在地城镇职工平均工资等因素，结合实际、制定培训对象薪酬待遇发放标准。此后，<span>多地财政加大对规培医生的投入</span>。规培宝数据显示，我国社会规培和单位委培的平均年薪为8.33万元，大多高于当地平均薪资。
+      </p>
+      <div class="chart" id="chart-income">
+        <div id="income-hospital" class="chart">
+          <div class="iframe-container">
+            <iframe src='https://flo.uri.sh/visualisation/18299540/embed' title='' class='flourish-embed-iframe'
+              frameborder='0' scrolling='no' style='width:100%;height:600px;'
+              sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+          </div>
+          <div class="iframe-container">
+            <iframe src='https://flo.uri.sh/visualisation/18045502/embed' title='' class='flourish-embed-iframe'
+              frameborder='0' scrolling='no' style='width:100%;height:600px;'
+              sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+          </div>
+          <div class="data-source" id="guipeibao-info">
+            <p>
+              注：1.右图中灰线为我国平均年收入线
+              <br>2.从规培宝爬取共1118家医院招收规培生的数据，通过python文本分析处理初步整理出社会规培生和委派规培生的薪资范围。为了让比较维度一致，筛选出其中有硕士学历规培生薪资的医院，最后得到数据238条。香港、澳门、台湾、西藏、青海、内蒙古、宁夏地区的数据暂时缺失。数据截止到2024年4月21日。
+            </p>
+          </div>
+        </div>
+        <div class="hint" id="hint5">
+          （鼠标悬浮查看详细信息▶）
+        </div>
+      </div>
+
+      <p style="margin-top: 100px;">
+        但是，作为规培制度中重要的一部分，专硕规培生的薪资却大多无处可查。规培基地不仅需要切实提高规培生待遇，也需要使所有规培生的薪资结构更加公开、透明、可查询。
+        <br>
+        <br>
+        2022年8月，北京大学人民医院开始全面实施“同岗同酬”制度，这是<span>全国第一个规培生和正式医生同工同酬的案例</span>。同月，医院发布年度招收简章，称在基本劳动报酬、基本奖金基础上，规培医生能参与分配科室绩效，“总额达到本科室同年资本院住院医师岗位水平”。
+        <br>
+        <br>
+        待遇之外，如何确保规培制度能够让规培生学到“新东西”？
+        <br>
+        <br>
+        一名南部省会知名三甲医院的带教老师坦言，真正以教学为核心的规培制度难以实现，“我们常常嘴巴上说‘医教研’，医疗工作放在第一位，教学第二。但实际上，大部分医院的排序都是‘研医教’，为什么呢？科研可以帮医院向上拿到更多资源，评上更高的级别，医疗能帮医院养活自己，维持运转，那教学能带来什么？”
+        <br>
+        <br>
+        规培主导权的归属问题是住院医规培体系设计中的顶层设计，决定着规培的走向和最终的成败。国务院2015年的文件曾明确指出，要“制定行业组织承接水平评价类职业资格具体认定工作管理办法，推进水平评价类职业资格具体认定工作由行业协会等组织承担。”
+        <br>
+        <br>
+        据此，有学者在《从美国住院医生培训看中国住院医师规范化培训的挑战和方向》一文中提出，我国应<span>变更规培体系的主导权，让行业协会等非政府组织来承担更多的社会责任</span>。“或许中国可以借鉴美国的经验，由医学会、医师协会和医院管理协会等组织共同组建非官方的住院医师规范化培训的管理和组织机构，由卫计委派驻观察员，同时纳入住院医师和公众代表。这样的机构设置，可以最大程度上避免政府部门管理效率低下、专业性缺乏的弊病，也符合国务院的相关文件精神。”
+        <br>
+        <br>
+        面对“制度”这个庞然大物，个体的能力和时间都过于渺小和短暂。因而，对于3年规培，医学生大多早早建立起了“熬过去就行了”的心态。不过，他们也比谁都清楚，自己的医生生涯甚至还没开始。<span>跑过规培的重点线，振臂高呼之时，迎接他们的是又一声枪响——新的长跑现在开始。</span>
+        <br>
+        <br>
+        <br>
+        <br>
+      </p>
+
+      <p style="font-size:0.8em;color: gray;">
+        （应采访对象要求，本文受访者皆为化名）
+      </p>
+    </div>
+  </section>
+  <!-- 第四章over -->
+
+  <!-- footer -->
+  <section id="section6" class="section avatar-invisible-trigger">
+    <div id="ending">
+      <div id="ending-content">
+        <div id="team">
+          <p class="ending-title">制作团队</p>
+          <p>
+            采访：龙杨卓龄 卢冠秋 唐悦阳 刘子涵
+            <br>
+            撰文：卢冠秋
+            <br>
+            数据分析及可视化：黄文玥 刘子涵
+            <br>
+            美工：刘子涵 龙杨卓龄
+            <br>
+            网页搭建：唐悦阳
+            <br>
+            <br>
+          </p>
+          <p class="ending-title">指导老师</p>
+          <p>
+            戴玉老师 刘萍老师
+          </p>
+        </div>
+        <div id="reference">
+          <p>
+            参考资料
+            <br>
+            1. 三联生活周刊.省医院25岁规培生自杀背后：变形的制度与“廉价”劳动力.https://mp.weixin.qq.com/s/qLNYw2G8IXakQ3t5q-bi3A
+            <br>
+            2. Chen, L., Zhao, Z., Wang, Z. et al. Prevalence and risk factors for depression among training physicians
+            in
+            China and the United States. Sci Rep 12, 8170 (2022).
+            <br>
+            3. 朱小艳,谢明萱,祖雄兵,等.“双轨合一”培训模式下住院医师的抑郁症状和知觉压力[J].中南大学学报(医学版),2020,45(12):1450-1456.
+            <br>
+            4. 医学青年就业帮.温习：世界各国医学生誓言.https://mp.weixin.qq.com/s/mHXB4Vj2IbAqgq3LKAJQoA
+            <br>
+            5. 胡婷. 建国以来医患报道中的医生媒介形象研究[D].华中师范大学,2023.
+            <br>
+            6. 余成普,宗铮.过渡期的职业社会化：规培生职业互动中的边缘与冲突[J].社会学研究,2023,38(03):45-67+227.
+            <br>
+            7.
+            上观新闻.规培生的一天：他们最焦虑什么.https://www.shobserver.com/staticsg/res/html/web/newsDetail.html?id=735839&v=1.3&sid=67
+            <br>
+            8. 余成普.管辖权边界的流动：国家、专业与医生分工体系[J].社会学研究,2021,36(05):158-179+229.
+            <br>
+            9. 看理想.她们为什么自杀？https://mp.weixin.qq.com/s/PTuNygRWihdJpuKpVfRxzQ
+            <br>
+            10. 丁香园.规培生的生存现状：超半数表示未被尊重，不同类型规培待遇差距大.https://zhuanlan.zhihu.com/p/139448698
+            <br>
+            11. 界面新闻.“住院医师规培制度第一人”回应规培之问.https://mp.weixin.qq.com/s/1PxQNSJrjfsFuQVRF7tVZQ
+            <br>
+            12.
+            图数室.图数Pro丨中国医生薪酬待遇调查.https://weibo.com/ttarticle/p/show?id=2309404935360156402240&mark_id=999_reallog_mark_ad%3A999%7CWeiboADNatural
+            <br>
+            13. 人物.「孩子们对人生一无所知，到底要怎么做呢？」https://mp.weixin.qq.com/s/bpWw1CEFpw3u-OHq108UPQ
+            <br>
+            14. 三联生活周刊.争议下“规培”的十年：成为一个好医生，要经历什么？https://mp.weixin.qq.com/s/lrz-vDd-zIhgK2hu5A6Iug
+            <br>
+            15. 崔永,王天佑.从美国住院医生培训看中国住院医师规范化培训的挑战和方向[J].中国肺癌杂志,2016,19(06):321-327.
+            <br>
+            16. 第一财经.重压下的医学生频频崩溃，“规培”制度有解吗？https://mp.weixin.qq.com/s/q95lCe0yiSVamgzrgNhxQQ
+          </p>
+        </div>
+        <p style="font-size: 0.8em;color:gray;text-align: center;">© 中国传媒大学·新闻学院·2024</p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <script src="./js/main.js"></script>
+  <script src="./js/script_whole.js"></script>
+  <script src="./js/nightmare.js"></script>
+  <script src="./js/ratio.js"></script>
+  <script src="./js/oneday.js"></script>
+</body>
+
+</html>
