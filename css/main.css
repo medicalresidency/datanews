@@ -754,7 +754,7 @@ canvas #detailedChart {
     width: 120%;
     position: relative;
     right: 10%;
-    height: 180vh;
+    height: 1800px;
     /* background-color: paleturquoise; */
     display: flex;
 }
